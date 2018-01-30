@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Portfolio!</title>
+    <link rel="stylesheet" href="css/master.css">
+    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
+  </head>
+  <body>
+    <div class="gridcontainer">
+      <header>
+        <a href="index.html">Mathias Poulsen</a>
+      </header>
+      <nav>
+        <ul class="menu">
+          <li class="menu_item">
+            <a id="active_page" href="#">home</a>
+          </li>
+          <li class="menu_item">
+            <a href="about.html">about_me</a>
+          </li>
+          <li class="menu_item">
+            <a href="contact.html">contact</a>
+          </li>
+          <li class="menu_item">
+            <a href="http://blog.demodata.dk" target="_blank">blog</a>
+          </li>
+        </ul>
+      </nav>
+      <main>
+        <div class="flexbox">
+          <figure id="d2_act_modal">
+            <div class="image_container">
+              <img class="image" src="images/small/floating_island_small_new.png" alt="Floating island">
+              <div class="image_overlay">
+                <div class="image_text">2D-Animation</div>
+              </div>
+            </div>
+          </figure>
+          <figure>
+            <div class="image_container" id="games_act_modal">
+              <img class="image" src="images/fullsize/squareland_start.png" alt="Squareland">
+              <div class="image_overlay">
+                <div class="image_text">Spil</div>
+              </div>
+            </div>
+          </figure>
+          <figure>
+            <div class="image_container" id="d3_act_modal">
+              <img class="image" src="images/fullsize/cannon.png" alt="Floating island">
+              <div class="image_overlay">
+                <div class="image_text">3D-Animation</div>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </main>
+      <footer>
+        <p>&#169; 2017 Mathias Poulsen</p>
+      </footer>
+    </div>
+
+    <!-- 2D-Animation -->
+    <div id="d2_modal" class="modal">
+      <div class="modal-content">
+          <div id="animation_container">
+            <canvas id="canvas"></canvas>
+            <div id="dom_overlay_container"></div>
+          </div>
+          <p>
+            <a href="http://animation.demodata.dk/MovingArt/movingart.html" target="_blank"><img class="modal_image" src="images/fullsize/movingart.png" alt=""></a>
+          </p>
+      </div>
+    </div>
+
+    <!-- Spil -->
+    <div id="games_modal" class="modal">
+      <div class="modal-content">
+          <h2 class="modal_text">Squareland</h2>
+          <p>
+            <video  src="video/squareland_video.mp4" autoplay loop>
+            </video>
+          </p>
+          <p>
+            <img src="images/fullsize/squareland_startscreen.png" alt="Screenshot af startskærmen til spillet 'Squareland'">
+          </p>
+          <p>
+            <img src="images/fullsize/squareland_tutorial.png" alt="Screenshot af første del af tutorial til spillet 'Squareland'" class="modal_image">
+          </p>
+          <p>
+            <img src="images/fullsize/squareland_level2.png" alt="Screenshot af en bane fra spillet 'Squareland'">
+          </p>
+          <h2 class="modal_text">StockMonkeys</h2>
+          <p>
+            <img src="images/fullsize/stockmonkeys_inside.png" alt="Screenshot af huset hvor aberne bor fra spillet 'StockMonkeys'">
+          </p>
+          <p>
+            <img src="images/fullsize/stockmonkeys_outside.png" alt="Screenshot af abeburet fra spillet 'StockMonkeys'">
+          </p>
+          <h2 class="modal_text">Twine</h2>
+          <p class="modal_text">
+            <a class="modal_text" href="http://div.demodata.dk/twine/Cinderella.html">Cinderella</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- 3D-animation -->
+      <div id="d3_modal" class="modal">
+        <div class="modal-content">
+            <p>
+              <iframe src="https://www.youtube.com/embed/s4BiagAKbYg" allowfullscreen></iframe>
+            </p>
+            <p>
+              <video src="video/cannon_animation.mp4" width="854" height="480" controls>
+              </video>
+            </p>
+          </div>
+        </div>
+
+      <script>
+      //Når modal er åben kan man ved at trykke på escape lukke modal ned igen
+        document.addEventListener("keydown", function(e){
+            if (e.key == "Escape") {
+              if (document.getElementsByTagName("BODY")[0].style.overflow == 'hidden') {
+                document.getElementById('d2_modal').style.display = 'none';
+
+                document.getElementById('games_modal').style.display = 'none';
+
+                document.getElementById('d3_modal').style.display = 'none';
+
+                document.getElementsByTagName("BODY")[0].style.overflow = 'auto';
+              }
+            }
+        });
+      </script>
+        <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+        <script src="script/explodingIsland.js"></script>
+        <script src="script/script.js"></script>
+  </body>
+</html>
